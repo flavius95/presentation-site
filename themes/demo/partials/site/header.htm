@@ -1,0 +1,55 @@
+==
+<section class="page_toplogo ls s-py-25">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center">
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="text-center">
+                    <div class="header_logo_center">
+                        <a href="/" class="logo">
+                            <img src="{{ 'assets/images/Logo.jpg'|theme }}" alt="">
+                        </a>
+                    </div>
+                    <!-- eof .header_left_logo -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<header class="page_header ls s-bordertop nav-narrow justify-nav-center">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-xl-12">
+
+                <div class="nav-wrap">
+
+                    <nav class="top-nav">
+                        <ul class="nav sf-menu text-center">
+
+                            <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Homepage</a>
+                            </li>
+                            <li class="{% if this.page.id == 'about' %}active{% endif %}"><a href="{{ 'about'|page }}">About
+                                Us</a></li>
+                            <li class="{% if this.page.id == 'portofolio' %}active{% endif %}"><a
+                                href="{{ 'portofolio'|page }}">Portofolio</a></li>
+                            <li class="{% if this.page.id == 'contact' %}active{% endif %}"><a
+                                href="{{ 'contact'|page }}">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <span class="social-icons top text-right">
+									<a href="#" class="fa fa-facebook " title="facebook"></a>
+									<a href="#" class="fa fa-twitter " title="twitter"></a>
+								</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header toggler -->
+    <span class="toggle_menu">
+					<span></span>
+				</span>
+
+</header>

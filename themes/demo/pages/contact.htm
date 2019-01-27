@@ -1,0 +1,57 @@
+title = "Contact"
+url = "/contact"
+layout = "default"
+meta_title = "Contact"
+is_hidden = 0
+
+[contactForm]
+injectBootstrapAssets = 1
+injectMainScript = 1
+==
+<section class="ls ms s-py-75">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 animate animated scaleAppear" data-animation="scaleAppear">
+                {% component 'contactForm' %}
+            </div>
+            <!--.col-* -->
+            <div class="col-lg-4 animate animated scaleAppear" data-animation="scaleAppear">
+                <div class="hero-bg p-65">
+                    <h2 class="contact-title "></h2>
+                    <div class="media mb-20">
+                        <div class="icon-styled color-main fs-20">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                                Address:
+                            </h4>
+                            <p>
+                                Satu Mare Str. Ganea 33A ap.1 Romania, 440232
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media mb-20">
+                        <div class="icon-styled color-main fs-20">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4>Phone:</h4>
+                            <p>+40752122404</p>
+                            <p>+40741478749</p>
+                        </div>
+                    </div>
+                    <div class="media mb-20">
+                        <div class="icon-styled color-main fs-20">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4>Email:</h4>
+                            <p>office.personnellease@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
