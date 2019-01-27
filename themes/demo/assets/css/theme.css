@@ -8842,6 +8842,7 @@ span.muted-bg {
 
 .icon-styled {
 	text-align: center;
+    margin: 10px 0 0 10px;
 }
 
 .icon-styled[class*='bg-'],
