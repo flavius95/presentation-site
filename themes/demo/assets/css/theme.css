@@ -7083,7 +7083,7 @@ body.boxed {
 ** Light Background Section - .ls
 */
 .ls {
-	background-color: #fff;
+	background-color: #f2f2f2;
 	color: #808080;
 }
 
@@ -7341,7 +7341,7 @@ select,
 
 /* dark background section - .ds.ms */
 .ds.ms {
-	background-color: #fff;
+	background-color: #f2f2f2;
 }
 
 .ds.ms .ds.ms {
