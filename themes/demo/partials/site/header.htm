@@ -1,3 +1,5 @@
+[localePicker]
+forceUrl = 0
 ==
 <section class="page_toplogo ls s-py-25">
     <div class="container-fluid">
@@ -11,8 +13,13 @@
                             <img src="{{ 'assets/images/Logo.jpg'|theme }}" alt="">
                         </a>
                     </div>
+                    <form class="navbar-form navbar-right">
+                        {{ 'Selecteaza limba dorita:'|_ }}
+                        {% component 'localePicker' %}
+                    </form>
                     <!-- eof .header_left_logo -->
                 </div>
+                
             </div>
         </div>
     </div>
@@ -23,26 +30,22 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-xl-12">
-
                 <div class="nav-wrap">
-
                     <nav class="top-nav">
                         <ul class="nav sf-menu text-center">
-
-                            <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Homepage</a>
+                            <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">{{ 'Acasa'|_ }}</a>
                             </li>
-                            <li class="{% if this.page.id == 'about' %}active{% endif %}"><a href="{{ 'about'|page }}">About
-                                Us</a></li>
+                            <li class="{% if this.page.id == 'about' %}active{% endif %}"><a href="{{ 'about'|page }}">{{ 'Despre
+                                Noi'|_ }}</a></li>
                             <li class="{% if this.page.id == 'portofolio' %}active{% endif %}"><a
-                                href="{{ 'portofolio'|page }}">Portofolio</a></li>
+                                href="{{ 'portofolio'|page }}">{{ 'Portofoliu'|_ }}</a></li>
                             <li class="{% if this.page.id == 'contact' %}active{% endif %}"><a
-                                href="{{ 'contact'|page }}">Contact</a></li>
+                                href="{{ 'contact'|page }}">{{ 'Contact'|_ }}</a></li>
                         </ul>
                     </nav>
                     <span class="social-icons top text-right">
-									<a href="https://www.facebook.com/pers.lease.5" class="fa fa-facebook " title="facebook"></a>
-									<!-- <a href="#" class="fa fa-twitter " title="twitter"></a> -->
-								</span>
+						<a href="https://www.facebook.com/pers.lease.5" class="fa fa-facebook " title="facebook"></a>
+					</span>
                 </div>
             </div>
         </div>

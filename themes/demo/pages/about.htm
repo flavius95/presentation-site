@@ -12,22 +12,20 @@ is_hidden = 0
                 <div class="row">
                     <div class="col-md-12 col-lg-6 animate" data-animation="slideInLeft">
                         <div class="heading-about">
-                            <p>
-                                Suntem o companie din România, autorizată să desfășoare activitate de închiriere de forță de muncă, dar vă putem oferi și suport în domeniul recrutării și plasării forței de muncă. Compania noastră își propune să își desfășoare activitatea, în principal, prin închirierea și/sau plasarea forței de muncă în statele UE.
-                            </p>
+                            {% content 'textaboutus1.htm' %}
                         </div>
                         <div class="icons-list">
                             <ul class="list-bordered">
                                 <li class=" media media-body">
                                     <!--<i class="teaser-icon fa fa-rocket"></i>-->
                                     <h4 class="title">
-                                        <span>5</span> Companies We Helped
+                                        <span>5</span> {{ 'Companii ajutate de noi'|_ }}
                                     </h4>
                                 </li>
                                 <li class="media media-body">
                                     <!--<i class="teaser-icon fa fa-briefcase"></i>-->
                                     <h4 class="title">
-                                        <span>2</span> Corporate Programs
+                                        <span>2</span> {{ 'Programe corporatiste'|_ }}
                                     </h4>
                                 </li>
                             </ul>
@@ -47,70 +45,31 @@ is_hidden = 0
                     </div>
                 </div>
                 <div class="col-lg-6 collapse-table">
-                    <div class="contact-header collapse-header heading pt-30">
-                        <h5>
-                            Receiving
-                        </h5>
-                        <h4>
-                            A job offer
-                        </h4>
-                    </div>
                     <div id="accordion01" role="tablist">
                         <div class="card-header" role="tab" id="collapse01_header">
                             <h5>
                                 <a class="collapsed" data-toggle="collapse" href="#collapse01" aria-expanded="true" aria-controls="collapse01">
-                                    Ce vă oferim
+                                    {{ 'Ce vă oferim'|_ }}
                                 </a>
                             </h5>
                         </div>
                         <div id="collapse01" class="collapse show" role="tabpanel" aria-labelledby="collapse01_header" data-parent="#accordion01">
                             <div class="card-body">
-                                În situația în care compania dvs. se confruntă cu problema lipsei de personal, sau are nevoie de o suplimentare periodică a efectivului de personal, sau dacă desfășoară o activitate sezonieră, noi vă putem asigura necesarul de forță de muncă necesară desfășurării în cele mai bune condiții a activității companiei dvs. De asemenea, vă putem oferi orice fel de consultanță în domeniile de mai sus.
+                                {% content 'textaboutus2.htm' %}
                             </div>
                         </div>
                         <div class="card-header" role="tab" id="collapse02_header">
                             <h5>
                                 <a class="collapsed" data-toggle="collapse" href="#collapse02" aria-expanded="false" aria-controls="collapse02">
-                                    De ce să ne alegeți pe noi
+                                    {{ 'De ce să ne alegeți pe noi'|_ }}
                                 </a>
                             </h5>
                         </div>
                         <div id="collapse02" class="collapse" role="tabpanel" aria-labelledby="collapse02_header" data-parent="#accordion01">
                             <div class="card-body">
-                                 Avantajele pe care le poate reprezenta pentru dvs. o eventuală colaborare cu compania noastră, sunt multiple și constau, în principal, în faptul că, compania noastră vă poate asigura:
-                                    - necesarul de personal pentru firma dvs.,
-                                    - forță de muncă serioasă, calificată, potrivită nevoilor companiei dvs.,
-                                    - în situația în care aveți nevoie de personal calificat într-un anumit domeniu de activitate, iar calificarea la locul de muncă nu este posibilă, vă putem asista și în această problemă prin intermedierea școlarizării/calificării forței de muncă prin intermediul firmelor din România cu care colaborăm și care sunt autorizate în acest domeniu,
-                                    - stabilitatea personalului datorită faptului că acesta nu va fi rotit, ci, fiecare persoană acceptată de dvs., va rămâne pe post atât timp cât veți avea nevoie de serviciile ei (bineînțeles, cu respectarea prevederilor legislative europene din domeniu),
-                                    - închirierea unei forțe de muncă de calitate și, în același timp, reducerea semnificativă a costurilor dvs. cu forța de muncă.
+                                {% content 'textaboutus3.htm' %}
                             </div>
                         </div>
-                        <!-- <div class="card-header" role="tab" id="collapse03_header">
-                            <h5>
-                                <a class="collapsed" data-toggle="collapse" href="#collapse03" aria-expanded="false" aria-controls="collapse03">
-                                    Resign
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="collapse03" class="collapse" role="tabpanel" aria-labelledby="collapse03_header" data-parent="#accordion01">
-                            <div class="card-body">
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="card-header" role="tab" id="collapse04_header">
-                            <h5>
-                                <a class="collapsed" data-toggle="collapse" href="#collapse04" aria-expanded="false" aria-controls="collapse04">
-                                    Counter offers
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="collapse04" class="collapse" role="tabpanel" aria-labelledby="collapse04_header" data-parent="#accordion01">
-                            <div class="card-body">
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>

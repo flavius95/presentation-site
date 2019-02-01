@@ -16,8 +16,8 @@ html {
 }
 
 ::selection {
-	background-color: #800000;
-	color: #fff;
+	background-color: #f2f2f2;
+	color: #000;
 }
 
 ::-moz-selection {
@@ -605,10 +605,10 @@ input[type="file"],
 textarea,
 select,
 .form-control {
-	background-color: #f2f2f2;
+	background-color: #ffffff;
 	border: none;
 	border-radius: 0;
-	color: #fff;
+	color: #000;
 	font-size: 12px;
 	font-weight: 700;
 	height: 50px;
@@ -632,7 +632,7 @@ input[type="submit"],
 button {
 	background: transparent;
 	border: 1px solid #f2f2f2;
-	color: #fff;
+	color: #0000;
 	cursor: pointer;
 	font-size: 12px;
 	font-weight: 700;
@@ -696,7 +696,7 @@ select[multiple] {
 
 select option,
 .form-control option {
-	background-color: #fff;
+	background-color: #f2f2f2;
 	color: #323232;
 }
 
@@ -715,7 +715,7 @@ select option,
 }
 
 .form-control:focus {
-	background-color: #f2f2f2;
+	background-color: #fff;
 	border-color: #bbb;
 }
 
@@ -736,7 +736,7 @@ select option,
 }
 
 .form-control::-webkit-input-placeholder {
-	color: #808080;
+	color: #000;
 	font-size: 12px;
 	font-style: normal;
 	font-weight: 600;

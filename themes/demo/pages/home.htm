@@ -13,19 +13,6 @@ is_hidden = 0
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="intro_layers_wrapper">
-                                <div class="intro_layers">
-                                    <div class="intro_layer" data-animation="fadeInLeft">
-                                        <h3 class="intro_before_featured_word">
-                                            Tellus elementum sagittis vitae
-                                        </h3>
-                                    </div>
-                                    <div class="intro_layer" data-animation="fadeInRight">
-                                        <h2 class="text-uppercase intro_featured_word">
-                                            Sit amet purus
-                                            <br> gravida
-                                        </h2>
-                                    </div>
-                                </div>
                                 <!-- eof .intro_layers -->
                             </div>
                             <!-- eof .intro_layers_wrapper -->
@@ -45,20 +32,25 @@ is_hidden = 0
                                 <div class="intro_layers">
                                     <div class="intro_layer" data-animation="pullUp">
                                         <h3 class="intro_before_featured_word">
-                                            Lorem ipsum dolor sit amet?
+                                            {{ 'Nevoie de text'|_ }}
                                         </h3>
                                     </div>
                                     <div class="intro_layer" data-animation="pullDown">
                                         <h2 class="text-uppercase intro_featured_word">
-                                            Lacus vel facilisis
-                                            <br> dignissim suspension.
+                                            {{ 'Nevoie de text'|_ }}
+                                            <br> {{ 'Nevoie de text.'|_ }}
                                         </h2>
                                     </div>
                                     <div class="intro_layer" data-animation="fadeIn">
                                         <div class="d-inline-block">
-                                            <button type="button" class="btn btn-outline-maincolor center-block"
-                                                    data-animation="fadeIn">Contact Us
+                                            <button id="contact" type="button" class="btn btn-outline-maincolor center-block"
+                                                    data-animation="fadeIn">{{ 'Contacteaza-ne'|_ }}
                                             </button>
+                                            <script type="text/javascript">
+                                                document.getElementById("contact").onclick = function () {
+                                                location.href = "/contact";
+                                                };
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -79,17 +71,6 @@ is_hidden = 0
                         <div class="col-sm-12">
                             <div class="intro_layers_wrapper">
                                 <div class="intro_layers">
-                                    <div class="intro_layer" data-animation="pullDown">
-                                        <h3 class="intro_before_featured_word">
-                                            Nunc aliquet bibendum enim facilisis.
-                                        </h3>
-                                    </div>
-                                    <div class="intro_layer" data-animation="pullUp">
-                                        <h2 class="text-uppercase intro_featured_word">
-                                            Nunc aliquet
-                                            <br> bibendum.
-                                        </h2>
-                                    </div>
                                 </div>
                                 <!-- eof .intro_layers -->
                             </div>
@@ -120,7 +101,7 @@ is_hidden = 0
             <div class="col-md-4 text-center">
                 <div class="info-block">
                     <p>
-                        Call Us
+                        {{ 'Sunati-ne'|_ }}
                     </p>
                     <h3>
                          0040752122404 
@@ -131,7 +112,7 @@ is_hidden = 0
             <div class="col-md-4 text-right">
                 <div class="info-block">
                     <p>
-                        Email Address
+                        {{ 'Adresa Email'|_ }}
                     </p>
                     <h3>
                         office.personnellease@gmail.com
@@ -141,15 +122,12 @@ is_hidden = 0
         </div>
     </div>
 </section>
-
 <section class="ls about s-pt-25">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-6 animate" data-animation="slideInLeft">
                 <div class="heading-about">
-                    <p>Compania noastra va ofera solutii de salarizare, recrutare si inchiriere forta de munca.
-                        Personnel Lease te ajuta sa gasesti personalul perfect pt business-ul tau fara sa te stresezi cu cautarea angajatiilor ideali. 
-                        </br>EFICIENT-RAPID-PRACTIC. </br>De asemenea putem oferi consultanta legislativa in domeniul HR și al legislației din domeniul muncii.</p>
+                    {% content 'texthomepage.htm' %}
                 </div>
                 <div class="icons-list">
                 </div>
