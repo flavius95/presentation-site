@@ -12,9 +12,13 @@ injectMainScript = 1
     <div class="container">
         <div class="row">
             <div class="col-lg-8 animate animated scaleAppear" data-animation="scaleAppear">
-                {% component 'contactForm' %}
+                <div class="row">
+                    <div class="col-sm-12 contact-title">
+                        <h2>{{ 'Formular de contact'|_ }}</h2>
+                    </div>
+                </div>
+                  {% component 'contactForm' %}<!-- contact form -->
             </div>
-            <!--.col-* -->
             <div class="col-lg-4 animate animated scaleAppear" data-animation="scaleAppear">
                 <div class="hero-bg p-65">
                     <h2 class="contact-title "></h2>

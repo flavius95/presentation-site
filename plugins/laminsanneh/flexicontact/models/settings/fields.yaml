@@ -8,6 +8,11 @@ fields:
     comment: laminsanneh.flexicontact::lang.strings.recipient_email_comment
     description: laminsanneh.flexicontact::lang.strings.recipient_email_desc
     type: text
+  recipient_phone:
+    label: laminsanneh.flexicontact::lang.strings.recipient_phone
+    comment: laminsanneh.flexicontact::lang.strings.recipient_phone_comment
+    description: laminsanneh.flexicontact::lang.strings.recipient_phone_desc
+    type: tel
   recipient_name:
     label: laminsanneh.flexicontact::lang.strings.recipient_name
     comment: laminsanneh.flexicontact::lang.strings.recipient_name_comment

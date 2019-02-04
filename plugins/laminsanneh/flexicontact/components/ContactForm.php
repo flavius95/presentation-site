@@ -104,8 +104,8 @@ class ContactForm extends ComponentBase{
         // If everything is fine - send an email
         Mail::send('laminsanneh.flexicontact::emails.message', post(), function($message)
         {
-            $message->replyTo(post('email'), post('name'))
-                ->to(Settings::get('recipient_email'), Settings::get('recipient_name'))
+            $message->replyTo(post('email'), post('name'), post('phone'), post('subject'))
+                ->to(Settings::get('recipient_email'), Settings::get('recipient_name'), Settings::get('recipient_phone'))
                 ->subject(Settings::get('subject'));
         });
 
