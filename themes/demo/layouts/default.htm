@@ -2,6 +2,17 @@ description = "Default layout"
 
 [localePicker]
 forceUrl = 0
+
+[cookieBanner]
+include_css = 1
+update_selector = "#gdpr-reload"
+
+[cookieManager]
+include_css = 1
+include_js = 1
+
+[consentManager]
+include_assets = 1
 ==
 <!DOCTYPE html>
 <html>
@@ -35,6 +46,7 @@ forceUrl = 0
                 <!-- Footer -->
                 <footer id="layout-footer">
                     {% partial 'site/footer' %}
+                    {% component 'cookieBanner' %}
                 </footer>
 
                 <!-- Scripts -->
