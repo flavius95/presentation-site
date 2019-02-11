@@ -7082,7 +7082,7 @@ body.boxed {
 ** Light Background Section - .ls
 */
 .ls {
-	background-color: #f2f2f2;
+	background-color: #1f232b;
 	color: #808080;
 }
 
@@ -7092,7 +7092,7 @@ body.boxed {
 .ls h4,
 .ls h5,
 .ls h6 {
-	color: #1f232b;
+	color: #000;
 }
 
 .ls h1 a,
@@ -7156,7 +7156,7 @@ body.boxed {
 ** Grey Background Section - light section, muted section - .ls.ms
 */
 .ls.ms {
-	background-color: #f2f2f2;
+	background-color: #1f232b;
 	color: #6e6e6e;
 }
 
@@ -7340,7 +7340,7 @@ select,
 
 /* dark background section - .ds.ms */
 .ds.ms {
-	background-color: #f2f2f2;
+	background-color: #1f232b;
 }
 
 .ds.ms .ds.ms {
@@ -12984,7 +12984,7 @@ a img.aligncenter {
 	}
 
 	.ls .sf-menu > li > a {
-		color: #323232;
+		color: #fff;
 	}
 
 	.ls .sf-menu > li > a:hover,

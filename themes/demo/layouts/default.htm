@@ -2,17 +2,6 @@ description = "Default layout"
 
 [localePicker]
 forceUrl = 0
-
-[cookieBanner]
-include_css = 1
-update_selector = "#gdpr-reload"
-
-[cookieManager]
-include_css = 1
-include_js = 1
-
-[consentManager]
-include_assets = 1
 ==
 <!DOCTYPE html>
 <html>
@@ -31,6 +20,29 @@ include_assets = 1
         <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
         <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
         {% styles %}
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+        <script>
+            window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+              "palette": {
+              "popup": {
+              "background": "#252e39"
+                },
+              "button": {
+              "background": "transparent",
+              "border": "#fcfcfc",
+              "text": "#fcfcfc"
+                }
+              },
+              "content": {
+              "message": "Acest site folosește module cookie pentru a îmbunătăți serviciul și a vă furniza informații adaptate. Prin utilizarea site-ului în continuare vă exprimați acordul expres pentru folosirea informațiilor stocate.",
+              "dismiss": "Am inteles!",
+              "link": "Politica noastra",
+              "href": "https://termsfeed.com/privacy-policy/8f0d0c7500721426430a572b33750481"
+          }
+         })});
+       </script>
     </head>
     <body>
         <div id="canvas">
@@ -46,7 +58,6 @@ include_assets = 1
                 <!-- Footer -->
                 <footer id="layout-footer">
                     {% partial 'site/footer' %}
-                    {% component 'cookieBanner' %}
                 </footer>
 
                 <!-- Scripts -->
