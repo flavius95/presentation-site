@@ -7083,16 +7083,19 @@ body.boxed {
 */
 .ls {
 	background-color: #1f232b;
-	color: #808080;
+	color: #fff;
 }
 
 .ls h1,
-.ls h2,
 .ls h3,
 .ls h4,
 .ls h5,
 .ls h6 {
-	color: #000;
+	color: #fff;
+}
+
+.ls h2 {
+    color: #fff;
 }
 
 .ls h1 a,
@@ -7165,7 +7168,7 @@ body.boxed {
 }
 
 .ls.ms .hero-bg {
-	background-color: #fff;
+	background-color: #1f232b;
 }
 
 .ls.ms .hero-bg hr {
@@ -8352,7 +8355,7 @@ select,
 .response,
 .color-main {
 	border-color: #000000;
-	color: #000000;
+	color: #fff;
 }
 
 .color-main2 {
@@ -12975,7 +12978,7 @@ a img.aligncenter {
 	}
 
 	.ds .sf-menu > li > a {
-		color: #fff;
+		color: #323232;
 	}
 
 	.ds .sf-menu > li > a:hover,
