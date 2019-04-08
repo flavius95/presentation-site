@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Vdlp\Redirect\Classes;
 
+use Carbon\Carbon;
 use Throwable;
 use Vdlp\Redirect\Models\Redirect;
-use Carbon\Carbon;
 
 /**
  * Class RedirectRule
@@ -230,6 +230,14 @@ class RedirectRule
     public function isPlaceholdersMatchType(): bool
     {
         return $this->matchType === Redirect::TYPE_PLACEHOLDERS;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRegexMatchType(): bool
+    {
+        return $this->matchType === Redirect::TYPE_REGEX;
     }
 
     /**

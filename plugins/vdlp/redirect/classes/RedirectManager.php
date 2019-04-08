@@ -12,8 +12,10 @@ use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
 use League\Csv\Reader;
+use October\Rain\Events\Dispatcher;
 use Symfony\Component\Routing;
 use Throwable;
+use Vdlp\Redirect\Classes\Contracts\RedirectConditionInterface;
 use Vdlp\Redirect\Classes\Contracts\RedirectManagerInterface;
 use Vdlp\Redirect\Classes\Exceptions;
 use Vdlp\Redirect\Models;
@@ -24,14 +26,19 @@ use Vdlp\Redirect\Models;
  * @SuppressWarnings(PHPMD.ExitExpression)
  * @package Vdlp\Redirect\Classes
  */
-class RedirectManager implements RedirectManagerInterface
+final class RedirectManager implements RedirectManagerInterface
 {
     /**
      * The redirect rules which this manager uses to perform matching.
      *
      * @var RedirectRule[]
      */
-    private $redirectRules;
+    private $rules;
+
+    /**
+     * @var RedirectConditionInterface[]
+     */
+    private $conditions = [];
 
     /**
      * The date for which the matching should be done.
@@ -74,15 +81,21 @@ class RedirectManager implements RedirectManagerInterface
     ];
 
     /**
-     * Constructs a RedirectManager instance.
+     * @var Dispatcher
      */
-    public function __construct()
-    {
-        /** @var Request $request */
-        $request = resolve(Request::class);
+    private $eventDispatcher;
 
+    /**
+     * Constructs a RedirectManager instance.
+     *
+     * @param Request $request
+     * @param Dispatcher $eventDispatcher
+     */
+    public function __construct(Request $request, Dispatcher $eventDispatcher)
+    {
         $this->matchDate = Carbon::today();
         $this->basePath = $request->getBasePath();
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -93,8 +106,8 @@ class RedirectManager implements RedirectManagerInterface
      */
     public static function createWithRule(RedirectRule $rule): RedirectManagerInterface
     {
-        $instance = new self();
-        $instance->redirectRules[] = $rule;
+        $instance = new self(resolve(Request::class), resolve(Dispatcher::class));
+        $instance->rules[] = $rule;
         return $instance;
     }
 
@@ -116,7 +129,7 @@ class RedirectManager implements RedirectManagerInterface
 
         $this->loadRedirectRules();
 
-        foreach ($this->redirectRules as $rule) {
+        foreach ($this->rules as $rule) {
             $matchedRule = $this->matchesRule($rule, $requestPath, $scheme);
 
             if ($matchedRule) {
@@ -247,6 +260,24 @@ class RedirectManager implements RedirectManagerInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function addCondition(string $conditionClass, int $priority)//: void
+    {
+        $this->conditions[$conditionClass] = $priority;
+        arsort($this->conditions);
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getConditions(): array
+    {
+        return array_keys($this->conditions);
+    }
+
+    /**
      * Enable or disable logging.
      *
      * @param bool $loggingEnabled
@@ -332,7 +363,7 @@ class RedirectManager implements RedirectManagerInterface
 
         // Strip curly braces from keys
         foreach ($rule->getPlaceholderMatches() as $placeholder => $value) {
-            $parameters[str_replace(['{', '}'], '', $placeholder)] = $value;
+            $parameters[str_replace(['{', '}'], '', (string) $placeholder)] = $value;
         }
 
         return (string) $controller->pageUrl($rule->getCmsPage(), $parameters);
@@ -371,7 +402,11 @@ class RedirectManager implements RedirectManagerInterface
 
         // Strip query parameters from request path.
         if ($rule->isIgnoreQueryParameters()) {
-            $requestPath = parse_url($requestPath, PHP_URL_PATH);
+            $parseResult = parse_url($requestPath, PHP_URL_PATH);
+
+            if ($parseResult !== null && $parseResult !== false) {
+                $requestPath = $parseResult;
+            }
         }
 
         // Perform exact match if applicable.
@@ -382,6 +417,11 @@ class RedirectManager implements RedirectManagerInterface
         // Perform placeholders match if applicable.
         if ($rule->isPlaceholdersMatchType()) {
             return $this->matchPlaceholders($rule, $requestPath);
+        }
+
+        // Perform regex match if applicable.
+        if ($rule->isRegexMatchType()) {
+            return $this->matchRegex($rule, $requestPath);
         }
 
         return false;
@@ -447,6 +487,26 @@ class RedirectManager implements RedirectManagerInterface
         }
 
         return $rule;
+    }
+
+    /**
+     * @param RedirectRule $rule
+     * @param string $url
+     * @return RedirectRule|bool
+     */
+    private function matchRegex(RedirectRule $rule, string $url)
+    {
+        $pattern = $rule->getFromUrl();
+
+        try {
+            if (preg_match($pattern, $url) === 1) {
+                return $rule;
+            }
+        } catch (Throwable $e) {
+            return false;
+        }
+
+        return false;
     }
 
     /**
@@ -517,7 +577,7 @@ class RedirectManager implements RedirectManagerInterface
      */
     private function loadRedirectRules()//: void
     {
-        if ($this->redirectRules !== null) {
+        if ($this->rules !== null) {
             return;
         }
 
@@ -530,11 +590,13 @@ class RedirectManager implements RedirectManagerInterface
                 $rules = $this->readRulesFromFilesystem();
             }
         } catch (Throwable $e) {
-            $logger = resolve(Log::class);
-            $logger->error($e);
+            /** @var Log $log */
+            $log = resolve(Log::class);
+            $log->error('Vdlp.Redirect: Could not load redirect rules: ' . $e->getMessage());
+            $log->debug($e);
         }
 
-        $this->redirectRules = $rules;
+        $this->rules = $rules;
     }
 
     /**
